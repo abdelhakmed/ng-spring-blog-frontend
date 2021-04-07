@@ -1,0 +1,27 @@
+<div class="content">
+  <div class="container">
+    <div class="row" *ngFor="let post of posts | async">
+      <div class="button" style="width: 90%; display: flex; flex-direction: row-reverse;justify-content: space-between;">
+        <a type="button" (click)="deletePost(post.id)" style=" background-color: red;" class="read-more btn btn-default">Delete Post</a>
+       
+        <h3><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></h3>
+      </div>
+      
+      <div class="blogpost">
+      
+       
+
+        <div>             <i class="fas fa-user"></i> Post Updated On : {{post.updatedOn}}           </div>
+        <div>
+          <i class="fas fa-user"></i> Author: <p>{{post.username}}</p>
+        </div>
+        <p [innerHTML]="post.content"></p>
+        <div>
+          <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Read More</a>
+        </div>
+        <hr>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
